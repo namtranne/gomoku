@@ -3,10 +3,10 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const path = require("path");
-// const cors = require("cors");
+const cors = require("cors");
 const fs = require("fs");
 app.use(express.static(path.join(__dirname + "/public")));
-
+app.use(cors());
 const server = http.createServer(app);
 
 const io = new Server(server, {
